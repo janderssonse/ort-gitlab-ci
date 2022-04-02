@@ -9,7 +9,6 @@ function jq_fail() {
 }
 
 STATS=$(jq -e '.statistics' "${ORT_RESULTS_EVALUATED_MODEL_FILE}") || jq_fail
-echo "export STATS='$STATS'" >> vars.env
 
 ERROR_ISSUES=$(echo $STATS | jq -e '.open_issues.errors') || jq_fail
 ERROR_VIOLATIONS=$(echo $STATS | jq -e '.open_rule_violations.errors') || jq_fail
