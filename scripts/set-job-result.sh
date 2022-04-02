@@ -14,8 +14,6 @@ echo "export STATS='$STATS'" >> vars.env
 ERROR_ISSUES=$(echo $STATS | jq -e '.open_issues.errors') || jq_fail
 ERROR_VIOLATIONS=$(echo $STATS | jq -e '.open_rule_violations.errors') || jq_fail
 
-echo "export ERROR_ISSUES='$ERROR_ISSUES'" >> vars.env
-echo "export ERROR_VIOLATIONS='$ERROR_VIOLATIONS'" >> vars.env
 
 if [[ $ERROR_ISSUES -eq 0 && $ERROR_VIOLATIONS -eq 0 ]]; then
 	echo "Scan has no issues nor violations that have to be fixed."
