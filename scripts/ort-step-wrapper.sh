@@ -9,7 +9,7 @@ STEP_NAME_UPPERCASED=${STEP^^}
 
 START_TIME=$(date +"%Y-%m-%dT%H:%M:%S%z")
 
-./scripts/ort-${STEP}.sh
+$ORT_SCRIPTS_DIR/ort-${STEP}.sh
 EXIT_CODE=$?
 
 END_TIME=$(date +"%Y-%m-%dT%H:%M:%S%z")
@@ -23,8 +23,5 @@ case "$EXIT_CODE" in
     ;;
 esac
 
-echo "export ${STEP_NAME_UPPERCASED}_START_TIME='${START_TIME}'" >> vars.env
-echo "export ${STEP_NAME_UPPERCASED}_STATUS='${STATUS}'" >> vars.env
-echo "export ${STEP_NAME_UPPERCASED}_END_TIME='${END_TIME}'" >> vars.env
 
 [[ $EXIT_CODE -eq 1 ]] && exit 1 || exit 0
