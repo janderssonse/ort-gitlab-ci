@@ -29,4 +29,4 @@ else
   ORT_POSTGRES=""
 fi
 
-envsubst < $ORT_SCRIPTS_DIR/ort.conf.tmpl > $ORT_CLI_CONFIG_FILE
+envsubst < "${ORT_CLI_CONFIG_TMPL}" > $ORT_CLI_CONFIG_FILE
